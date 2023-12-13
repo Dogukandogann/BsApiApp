@@ -1,0 +1,23 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.Internal;
+using Repositories.Contracts;
+using Repositories.EfCore;
+using Services;
+using Services.Contracts;
+
+namespace WebApi.Extensions
+{
+    public static class ServicesExtensions
+    {
+        public static void ConfigureSqlContext(this IServiceCollection service,IConfiguration configuration)
+        {
+            service.AddDbContext<RepositoryDbContext>(options =>
+
+            options.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
+        }
+        public static void ConfigureRepositoryManager(this IServiceCollection services) => 
+            services.AddScoped<IRepositoryManager, RepositoryManager>();
+        public static void ConfigureServiceManager(this IServiceCollection services) =>
+            services.AddScoped<IServiceManager, ServiceManager>();
+    }
+}
