@@ -1,0 +1,4 @@
+2023-12-16 21:48:19.2391 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-16 21:48:19.4256 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-16 21:48:19.4634 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\BsStoreApp\WebApi\nlog.config
+2023-12-16 21:48:19.4942 Info Configuration initialized.
