@@ -1,0 +1,28 @@
+2023-12-16 21:48:19.2391 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-16 21:48:19.4256 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-16 21:48:19.4634 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\BsStoreApp\WebApi\nlog.config
+2023-12-16 21:48:19.4942 Info Configuration initialized.
+2023-12-18 23:19:39.4073 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-18 23:19:39.5903 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-18 23:19:39.6391 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\C#\BsStoreApp\WebApi\nlog.config
+2023-12-18 23:19:39.6851 Info Configuration initialized.
+2023-12-18 23:23:10.6684 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-18 23:23:10.7109 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-18 23:23:10.7458 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\C#\BsStoreApp\WebApi\nlog.config
+2023-12-18 23:23:10.7727 Info Configuration initialized.
+2023-12-18 23:26:54.6474 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-18 23:26:54.6758 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-18 23:26:54.6974 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\C#\BsStoreApp\WebApi\nlog.config
+2023-12-18 23:26:54.7224 Info Configuration initialized.
+2023-12-18 23:38:43.9740 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-18 23:38:44.0107 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-18 23:38:44.0392 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\C#\BsStoreApp\WebApi\nlog.config
+2023-12-18 23:38:44.0609 Info Configuration initialized.
+2023-12-18 23:38:45.6708 Info AppDomain Shutting down. LogFactory closing...
+2023-12-18 23:38:45.7003 Info LogFactory has been closed.
+2023-12-18 23:49:22.1188 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-18 23:49:22.1506 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-18 23:49:22.1741 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\C#\BsStoreApp\WebApi\nlog.config
+2023-12-18 23:49:22.1953 Info Configuration initialized.
+2023-12-18 23:50:54.6775 Info AppDomain Shutting down. LogFactory closing...
+2023-12-18 23:50:54.7093 Info LogFactory has been closed.

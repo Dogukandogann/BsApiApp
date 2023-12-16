@@ -2,11 +2,7 @@
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static Entities.Exceptions.NotFoundException;
 
 namespace Presentation.Controllers
 {
@@ -24,48 +20,33 @@ namespace Presentation.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            try
-            {
-                var books = _services.BookServices.GetAllBooks(false);
-                return Ok(books);
-            }
-            catch (Exception ex)
-            {
 
-                throw new Exception(ex.Message);
-            }
+            var books = _services.BookServices.GetAllBooks(false);
+            return Ok(books);
+
+
 
         }
         [HttpGet("{id:int}")]
         public IActionResult GetOneBook([FromRoute(Name = "id")] int id)
         {
-            try
-            {
-                var book = _services.BookServices.GetBookById(id, false);
-                if (book is null) return NotFound();
-                return Ok(book);
-            }
-            catch (Exception ex)
-            {
 
-                throw new Exception(ex.Message);
-            }
+           
+            var book = _services.BookServices.GetBookById(id, false);
+            
+            return Ok(book);
+
 
         }
         [HttpPost]
         public IActionResult CreateBook([FromBody] Book book)
         {
-            try
-            {
-                if (book is null) return BadRequest();
-                _services.BookServices.CreateOneBook(book);
-                return StatusCode(201, book);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
 
-            }
+            if (book is null) return BadRequest();
+            _services.BookServices.CreateOneBook(book);
+            return StatusCode(201, book);
+
+
         }
         [HttpPut("{id:int}")]
         public IActionResult UpdateBook([FromRoute(Name = "id")] int id, [FromBody] Book book)
@@ -77,35 +58,22 @@ namespace Presentation.Controllers
         [HttpDelete("{id:int}")]
         public IActionResult DeleteBook([FromRoute(Name = "id")] int id)
         {
-            try
-            {
 
-                _services.BookServices.DeleteOneBook(id, false);
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
 
-                throw new Exception(ex.Message);
-            }
+            _services.BookServices.DeleteOneBook(id, false);
+            return NoContent();
+
         }
         [HttpPatch("{id:int}")]
         public IActionResult PartialyUpdateOneBook([FromRoute(Name = "id")] int id, [FromBody] JsonPatchDocument<Book> bookpatch)
         {
-            try
-            {
-                var book = _services.BookServices.GetBookById(id, true);
-                if (book is null) return NotFound();
+            var book = _services.BookServices.GetBookById(id, true);
+            
 
-                bookpatch.ApplyTo(book);
-                _services.BookServices.UpdateBook(book, id, true);
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
+            bookpatch.ApplyTo(book);
+            _services.BookServices.UpdateBook(book, id, true);
+            return NoContent();
 
-                throw new Exception(ex.Message);
-            }
 
 
         }
