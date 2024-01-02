@@ -26,3 +26,7 @@
 2023-12-18 23:49:22.1953 Info Configuration initialized.
 2023-12-18 23:50:54.6775 Info AppDomain Shutting down. LogFactory closing...
 2023-12-18 23:50:54.7093 Info LogFactory has been closed.
+2024-01-02 14:10:59.4388 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-01-02 14:10:59.5851 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2024-01-02 14:10:59.6259 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\C#\BsStoreApp\WebApi\nlog.config
+2024-01-02 14:10:59.6667 Info Configuration initialized.
