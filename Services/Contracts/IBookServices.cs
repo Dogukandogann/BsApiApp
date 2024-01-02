@@ -11,9 +11,11 @@ namespace Services.Contracts
     public interface IBookServices
     {
         IEnumerable<BookDto> GetAllBooks(bool trackChanges);
-        Book GetBookById(int id, bool trackChanges);
-        Book CreateOneBook(Book book);
+        BookDto GetBookById(int id, bool trackChanges);
+        BookDto CreateOneBook(BookDtoForInsertion book);
         void DeleteOneBook(int id, bool trackChanges);
         void UpdateBook(BookDtoForUpdate bookDto, int id, bool trackChanges);
+        (BookDtoForUpdate bookDtoForUpdate, Book book) GetOneBookForPatch(int id, bool trackChanges);
+        void SaveChangesForPach(BookDtoForUpdate bookDtoForUpdate,Book book);
     }
 }
