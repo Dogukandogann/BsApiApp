@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NLog;
+using Repositories.ActionFilters;
 using Repositories.EfCore;
 using Services.Contracts;
 using WebApi.Extensions;
@@ -13,9 +14,12 @@ builder.Services.AddControllers(config =>
 {
     config.RespectBrowserAcceptHeader = true;
     config.ReturnHttpNotAcceptable = true;
-}).AddCustomCsvFormatter()
-    .AddXmlDataContractSerializerFormatters()
-    .AddApplicationPart(typeof(Presentation.AssemblyReference).Assembly).AddNewtonsoftJson();
+})/*.AddCustomCsvFormatter()*/
+    //.AddXmlDataContractSerializerFormatters()
+    .AddApplicationPart(typeof(Presentation.AssemblyReference).Assembly)
+    .AddNewtonsoftJson();
+
+builder.Services.AddScoped<ValidationFilterAttribute>(); //IoC
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
