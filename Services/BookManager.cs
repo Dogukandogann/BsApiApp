@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Entities.DataTransferObjects;
 using Entities.Entities;
+using Entities.RequestFeatures;
 using Repositories.Contracts;
 using Services.Contracts;
 using System;
@@ -42,9 +43,9 @@ namespace Services
             await _repositoryManager.SaveAsync();
         }
 
-        public async Task<IEnumerable<BookDto>> GetAllBooksAsync(bool trackChanges)
+        public async Task<IEnumerable<BookDto>> GetAllBooksAsync(BookParameters bookParameters, bool trackChanges)
         {
-            var books = await _repositoryManager.Book.GetAllBooksAsync(trackChanges);
+            var books = await _repositoryManager.Book.GetAllBooksAsync(bookParameters,trackChanges);
              return _mapper.Map<IEnumerable<BookDto>>(books);
         }
 

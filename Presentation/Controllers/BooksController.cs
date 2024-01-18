@@ -1,4 +1,5 @@
 ﻿using Entities.DataTransferObjects;
+using Entities.RequestFeatures;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilter;
@@ -20,9 +21,9 @@ namespace Presentation.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery]BookParameters bookParameters)
         {
-            var books = await _services.BookServices.GetAllBooksAsync(false);
+            var books = await _services.BookServices.GetAllBooksAsync(bookParameters,false);
             return Ok(books);
         }
 
