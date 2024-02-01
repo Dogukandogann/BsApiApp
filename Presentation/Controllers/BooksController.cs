@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilter;
 using Repositories.ActionFilters;
 using Services.Contracts;
+using System.Text.Json;
 
 namespace Presentation.Controllers
 {
@@ -23,8 +24,9 @@ namespace Presentation.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery]BookParameters bookParameters)
         {
-            var books = await _services.BookServices.GetAllBooksAsync(bookParameters,false);
-            return Ok(books);
+            var pagedResult = await _services.BookServices.GetAllBooksAsync(bookParameters,false);
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.metaData));
+            return Ok(pagedResult.books);
         }
 
         [HttpGet("{id:int}")]
