@@ -2,6 +2,7 @@
 using Entities.RequestFeatures;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
+using Repositories.EfCore.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Repositories.EfCore
 {
-    public class BookRepository : RepositoryBase<Book>, IBookRepository
+    public sealed class BookRepository : RepositoryBase<Book>, IBookRepository
     {
         public BookRepository(RepositoryDbContext repositoryDbContext) : base(repositoryDbContext)
         {
@@ -24,8 +25,10 @@ namespace Repositories.EfCore
 
         public async Task<PagedList<Book>> GetAllBooksAsync(BookParameters bookParameters, bool trackChanges)
         {
-           var books = await FindAll(trackChanges)
-                .OrderBy(b => b.Id)
+            var books = await FindAll(trackChanges)
+                 .FilterBooks(bookParameters.MinPrice, bookParameters.MaxPrice)
+                 .Search(bookParameters.SearchTerm)
+                 .Sort(bookParameters.OrderBy)
                 .ToListAsync();
             return PagedList<Book>.ToPagedList(books,bookParameters.PageNumber,bookParameters.PageSize);
 

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Entities.DataTransferObjects;
 using Entities.Entities;
+using Entities.Exceptions;
 using Entities.RequestFeatures;
 using Repositories.Contracts;
 using Services.Contracts;
@@ -45,6 +46,9 @@ namespace Services
 
         public async Task<(IEnumerable<BookDto> books, MetaData metaData)> GetAllBooksAsync(BookParameters bookParameters, bool trackChanges)
         {
+            if (!bookParameters.ValidPriceRange)
+                throw new PriceOutOfRangeBadRequestException();
+            
             var booksWithMetaData = await _repositoryManager.
                 Book.
                 GetAllBooksAsync(bookParameters,trackChanges);
