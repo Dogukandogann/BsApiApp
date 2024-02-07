@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Entities.DataTransferObjects;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using Presentation.ActionFilter;
 using Repositories.ActionFilters;
@@ -41,6 +42,11 @@ namespace WebApi.Extensions
                 );
             });
 
+        }
+
+        public static void ConfigureDataShaper(this IServiceCollection services)
+        {
+            services.AddScoped<IDataShaper<BookDto>,DataShaper<BookDto>>();
         }
     }
 }
