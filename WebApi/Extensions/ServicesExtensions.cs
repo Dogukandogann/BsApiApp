@@ -32,6 +32,7 @@ namespace WebApi.Extensions
         {
             services.AddScoped<ValidationFilterAttribute>(); //IoC
             services.AddSingleton<LogFilterAttribute>();
+            services.AddScoped<ValidateMediaType>();
         }
         public static void ConfigureCors(this IServiceCollection services)
         {
@@ -67,7 +68,7 @@ namespace WebApi.Extensions
 
                 if (xmlOutputFormatter is not null)
                 {
-                    xmlOutputFormatter.SupportedMediaTypes.Add("application / vnd.btkakademi.hateoas+xml");
+                    xmlOutputFormatter.SupportedMediaTypes.Add("application/vnd.btkakademi.hateoas+xml");
                 }
             });
         }
