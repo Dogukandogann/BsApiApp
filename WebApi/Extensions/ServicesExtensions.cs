@@ -1,9 +1,11 @@
 ﻿using Entities.DataTransferObjects;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using Presentation.ActionFilter;
+using Presentation.Controllers;
 using Repositories.ActionFilters;
 using Repositories.Contracts;
 using Repositories.EfCore;
@@ -74,6 +76,20 @@ namespace WebApi.Extensions
 
                     xmlOutputFormatter.SupportedMediaTypes.Add("application/vnd.btkakademi.apiroot+json");
                 }
+            });
+
+        }
+
+        public static void ConfigureVersioning(this IServiceCollection services)
+        {
+            services.AddApiVersioning(options =>
+            {
+                options.ReportApiVersions = true;
+                options.AssumeDefaultVersionWhenUnspecified = true;
+                options.DefaultApiVersion = new ApiVersion(1, 0);
+                options.ApiVersionReader = new HeaderApiVersionReader("api-verion");
+                options.Conventions.Controller<BooksController>().HasApiVersion(new ApiVersion(1, 0));
+                options.Conventions.Controller<BookV2Controller>().HasDeprecatedApiVersion(new ApiVersion(2, 0));
             });
         }
     }
