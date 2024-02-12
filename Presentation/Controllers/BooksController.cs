@@ -20,8 +20,8 @@ namespace Presentation.Controllers
         {
             _services = services;
         }
-
-        [HttpGet]
+        [HttpHead]
+        [HttpGet(Name ="GetAllBooksAsync")]
         [ServiceFilter(typeof(ValidateMediaType))]
         public async Task<IActionResult> GetAll([FromQuery]BookParameters bookParameters)
         {
@@ -46,7 +46,7 @@ namespace Presentation.Controllers
         }
 
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [HttpPost]
+        [HttpPost(Name ="CreateOneBook")]
         public async Task<IActionResult> CreateBook([FromBody] BookDtoForInsertion bookDto)
         {
             var book = await _services.BookServices.CreateOneBookAsync(bookDto);
@@ -84,6 +84,13 @@ namespace Presentation.Controllers
             }
            await _services.BookServices.SaveChangesForPachAsync(result.bookDtoForUpdate,result.book);
             return NoContent();
+        }
+
+        [HttpOptions]
+        public IActionResult GetBooksOptions()
+        {
+            Response.Headers.Add("Allow","GET , PUT , POST , PATCH , DELETE , HEAD , OPTIONS");
+            return Ok();
         }
     }
 }
