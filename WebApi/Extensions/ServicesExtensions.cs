@@ -17,13 +17,13 @@ namespace WebApi.Extensions
 {
     public static class ServicesExtensions
     {
-        public static void ConfigureSqlContext(this IServiceCollection service,IConfiguration configuration)
+        public static void ConfigureSqlContext(this IServiceCollection service, IConfiguration configuration)
         {
             service.AddDbContext<RepositoryDbContext>(options =>
 
             options.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
         }
-        public static void ConfigureRepositoryManager(this IServiceCollection services) => 
+        public static void ConfigureRepositoryManager(this IServiceCollection services) =>
             services.AddScoped<IRepositoryManager, RepositoryManager>();
         public static void ConfigureServiceManager(this IServiceCollection services) =>
             services.AddScoped<IServiceManager, ServiceManager>();
@@ -52,7 +52,7 @@ namespace WebApi.Extensions
 
         public static void ConfigureDataShaper(this IServiceCollection services)
         {
-            services.AddScoped<IDataShaper<BookDto>,DataShaper<BookDto>>();
+            services.AddScoped<IDataShaper<BookDto>, DataShaper<BookDto>>();
         }
 
         public static void AddCustomMediaTypes(this IServiceCollection services)
@@ -92,5 +92,17 @@ namespace WebApi.Extensions
                 options.Conventions.Controller<BookV2Controller>().HasDeprecatedApiVersion(new ApiVersion(2, 0));
             });
         }
+        public static void ConfigureResponseCaching(this IServiceCollection services) => services.ConfigureResponseCaching();
+        public static void ConfigureHttpCacheHeaders(this IServiceCollection services) => services.AddHttpCacheHeaders(expOpt =>
+        {
+            expOpt.MaxAge = 70;
+            expOpt.CacheLocation = Marvin.Cache.Headers.CacheLocation.Private;
+
+        },
+        validationOpt=>
+        {
+            validationOpt.MustRevalidate = false;
+        });
+       
     }
 }
