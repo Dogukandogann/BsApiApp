@@ -92,3 +92,35 @@
 2024-02-12 13:26:35.1296 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
 2024-02-12 13:26:35.1849 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\C#\BsStoreApp\WebApi\nlog.config
 2024-02-12 13:26:35.2290 Info Configuration initialized.
+2024-02-14 11:05:18.6798 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-02-14 11:05:18.7331 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2024-02-14 11:05:18.7557 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\C#\BsStoreApp\WebApi\nlog.config
+2024-02-14 11:05:18.7750 Info Configuration initialized.
+2024-02-14 11:08:30.1326 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-02-14 11:08:30.1623 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2024-02-14 11:08:30.1834 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\C#\BsStoreApp\WebApi\nlog.config
+2024-02-14 11:08:30.2030 Info Configuration initialized.
+2024-02-14 11:10:35.5731 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-02-14 11:10:35.6012 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2024-02-14 11:10:35.6232 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\C#\BsStoreApp\WebApi\nlog.config
+2024-02-14 11:10:35.6430 Info Configuration initialized.
+2024-02-14 11:10:38.0575 Info AppDomain Shutting down. LogFactory closing...
+2024-02-14 11:10:38.0742 Info LogFactory has been closed.
+2024-02-14 11:11:48.9598 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-02-14 11:11:48.9895 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2024-02-14 11:11:49.0125 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\C#\BsStoreApp\WebApi\nlog.config
+2024-02-14 11:11:49.0345 Info Configuration initialized.
+2024-02-14 11:11:51.6719 Info AppDomain Shutting down. LogFactory closing...
+2024-02-14 11:11:51.6896 Info LogFactory has been closed.
+2024-02-14 11:20:25.3397 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-02-14 11:20:25.3712 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2024-02-14 11:20:25.3930 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\C#\BsStoreApp\WebApi\nlog.config
+2024-02-14 11:20:25.4123 Info Configuration initialized.
+2024-02-14 11:20:27.6841 Info AppDomain Shutting down. LogFactory closing...
+2024-02-14 11:20:27.7010 Info LogFactory has been closed.
+2024-02-14 11:21:02.0626 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-02-14 11:21:02.0937 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2024-02-14 11:21:02.1161 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Senem\Desktop\UdemyCourses\C#\BsStoreApp\WebApi\nlog.config
+2024-02-14 11:21:02.1373 Info Configuration initialized.
+2024-02-14 11:21:04.7218 Info AppDomain Shutting down. LogFactory closing...
+2024-02-14 11:21:04.7402 Info LogFactory has been closed.

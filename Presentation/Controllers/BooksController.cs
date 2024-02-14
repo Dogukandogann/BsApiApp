@@ -1,6 +1,7 @@
 ﻿using Entities.DataTransferObjects;
 using Entities.RequestFeatures;
 using Marvin.Cache.Headers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilter;
@@ -10,6 +11,7 @@ using System.Text.Json;
 
 namespace Presentation.Controllers
 {
+    [Authorize]
     //[ApiVersion("1.0")]
     [ServiceFilter(typeof(LogFilterAttribute))]
     [ApiController]

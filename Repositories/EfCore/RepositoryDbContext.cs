@@ -1,11 +1,13 @@
 ﻿using Entities.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Repositories.EfCore.Config;
+using System.Reflection;
 
 
 namespace Repositories.EfCore
 {
-    public class RepositoryDbContext : DbContext
+    public class RepositoryDbContext : IdentityDbContext<User>
     {
         public DbSet<Book> Books { get; set; }
         public RepositoryDbContext(DbContextOptions options) : base(options)
@@ -14,7 +16,10 @@ namespace Repositories.EfCore
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new BookConfig());
+            base.OnModelCreating(modelBuilder);
+            //modelBuilder.ApplyConfiguration(new BookConfig());
+            //modelBuilder.ApplyConfiguration(new RoleConfig());
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
