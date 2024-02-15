@@ -11,5 +11,7 @@ namespace Entities.Entities
     {
         public String? FirstName { get; set; }
         public String? LastName { get; set; }
+        public String? RefreshToken { get; set; }
+        public DateTime RefreshTokenExpiryTime { get; set; }
     }
 }
