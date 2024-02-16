@@ -12,6 +12,7 @@ namespace Presentation.Controllers
 {
     [ApiController]
     [Route("api/auth")]
+    [ApiExplorerSettings(GroupName = "v1")]
     public class AuthenticationController :ControllerBase
     {
         private readonly IServiceManager _service;
@@ -46,6 +47,14 @@ namespace Presentation.Controllers
             var tokenDto = await _service.AuthenticationService.CreateToken(populateExp:true);
 
             return Ok(tokenDto);
+        }
+        [HttpPost("refresh")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> RefreshToken([FromBody]TokenDto tokenDto)
+        {
+            var tokenDtoToReturn = await _service.AuthenticationService.RefreshToken(tokenDto);
+
+            return Ok(tokenDtoToReturn);
         }
 
 
