@@ -92,6 +92,11 @@ namespace Presentation.Controllers
            await _services.BookServices.SaveChangesForPachAsync(result.bookDtoForUpdate,result.book);
             return NoContent();
         }
+        [HttpGet("details")]
+        public async Task<IActionResult> GetAllbooksWithDetailsAsync()
+        {
+            return Ok(await _services.BookServices.GetAllBooksWithDetailsAsync(false));
+        }
 
         [HttpOptions]
         public IActionResult GetBooksOptions()

@@ -16,6 +16,8 @@ using Repositories.Contracts;
 using Repositories.EfCore;
 using Services;
 using Services.Contracts;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -194,9 +196,17 @@ namespace WebApi.Extensions
                     }
                 });
             });
-            
-            
-
+        }
+        public static void RegisterRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<IBookRepository,BookRepository>();
+            services.AddScoped<ICategoryRepository,CategoryRepository>();
+        }
+        public static void RegisterServices(this IServiceCollection services)
+        {
+            services.AddScoped<IBookServices, BookManager>();
+            services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<IAuthenticationService, AuthenticationManager>();
         }
     }
 }

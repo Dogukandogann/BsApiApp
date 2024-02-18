@@ -22,18 +22,20 @@ namespace Services
         private readonly ILoggerService _loggerService;
         private readonly IMapper _mapper;
         private readonly IBookLinks _bookLinks;
+        private readonly ICategoryService _categoryService;
 
-        public BookManager(IRepositoryManager repositoryManager, ILoggerService loggerService, IMapper mapper, IBookLinks bookLinks)
+        public BookManager(IRepositoryManager repositoryManager, ILoggerService loggerService, IMapper mapper, IBookLinks bookLinks, ICategoryService categoryService)
         {
             _repositoryManager = repositoryManager;
             _loggerService = loggerService;
             _mapper = mapper;
             _bookLinks = bookLinks;
-            
+            _categoryService = categoryService;
         }
 
         public async Task<BookDto> CreateOneBookAsync(BookDtoForInsertion bookDto)
         {
+            var category = await _categoryService.GetOneCategoryByIdAsync(bookDto.CategoryId,false);
             var entity =  _mapper.Map<Book>(bookDto);
             _repositoryManager.Book.CreateOneBook(entity);
            await _repositoryManager.SaveAsync();
@@ -69,6 +71,11 @@ namespace Services
             return books;
         }
 
+        public async Task<IEnumerable<Book>> GetAllBooksWithDetailsAsync(bool trackChanges)
+        {
+            return await _repositoryManager.Book.GetAllBooksWithDetailsAsync(trackChanges);
+        }
+
         public async Task<BookDto> GetBookByIdAsync(int id, bool trackChanges)
         {
             var book = await _repositoryManager.Book.GetOneBookByIdAsync(id,trackChanges);
@@ -95,6 +102,8 @@ namespace Services
 
         public async Task UpdateBookAsync(BookDtoForUpdate bookDto, int id, bool trackChanges)
         {
+            var category = await _categoryService.GetOneCategoryByIdAsync(bookDto.CategoryId,false);
+
             var entity = await _repositoryManager.Book.GetOneBookByIdAsync(id, trackChanges);
             if (entity is null) throw new BookNotFoundException(id);
             entity = _mapper.Map<Book>(entity);
